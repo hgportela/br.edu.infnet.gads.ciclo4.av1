@@ -1,15 +1,18 @@
 package br.edu.infnet.java3.ciclo4.av1;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.ImageIcon;
 
 public class MainInterface {
 
-	private JFrame frame;
+	private JFrame frmControleDeEstoque;
 
 	/**
 	 * Launch the application.
@@ -19,7 +22,7 @@ public class MainInterface {
 			public void run() {
 				try {
 					MainInterface window = new MainInterface();
-					window.frame.setVisible(true);
+					window.frmControleDeEstoque.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,42 +41,56 @@ public class MainInterface {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmControleDeEstoque = new JFrame();
+		frmControleDeEstoque.setIconImage(Toolkit.getDefaultToolkit().getImage(MainInterface.class.getResource("/br/edu/infnet/java3/ciclo4/av1/imagens/logoicon.png")));
+		frmControleDeEstoque.setTitle("Controle de Estoque");
+		frmControleDeEstoque.setBounds(100, 100, 450, 300);
+		frmControleDeEstoque.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frmControleDeEstoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
 		JMenu cadastrar,pesquisar,listar;
-		JMenuItem loja, carro, moto;
 		
 		menuBar.setToolTipText("");
-		frame.setJMenuBar(menuBar);
-		cadastrar = new JMenu("Cadastrar");			
+		frmControleDeEstoque.setJMenuBar(menuBar);
+		cadastrar = new JMenu("Cadastrar");
 		pesquisar = new JMenu("Pesquisar");
 		listar = new JMenu("Listar");
-		loja = new JMenuItem("Loja");
-		carro = new JMenuItem("Carro");
-		moto = new JMenuItem("Moto");
 		
 		menuBar.add(cadastrar);
 		menuBar.add(pesquisar);
-		
-		JMenuItem mntmCarro = new JMenuItem("Carro");
-		pesquisar.add(mntmCarro);
-		
-		JMenuItem mntmMoto = new JMenuItem("Moto");
-		pesquisar.add(mntmMoto);
 		menuBar.add(listar);
 		
-		JMenuItem mntmCarro_1 = new JMenuItem("Carro");
-		listar.add(mntmCarro_1);
+		JMenuItem cadLoja = new JMenuItem("Loja");
+		cadLoja.setIcon(new ImageIcon(MainInterface.class.getResource("/br/edu/infnet/java3/ciclo4/av1/imagens/lojaicon.png")));
+		cadLoja.setPreferredSize(new Dimension(150, 22));
+		cadastrar.add(cadLoja);
+		JMenuItem cadCarro = new JMenuItem("Carro");
+		cadCarro.setIcon(new ImageIcon(MainInterface.class.getResource("/br/edu/infnet/java3/ciclo4/av1/imagens/carroicon.png")));
+		cadCarro.setPreferredSize(new Dimension(150, 22));
+		cadastrar.add(cadCarro);
+		JMenuItem cadMoto = new JMenuItem("Moto");
+		cadMoto.setIcon(new ImageIcon(MainInterface.class.getResource("/br/edu/infnet/java3/ciclo4/av1/imagens/motoicon.png")));
+		cadMoto.setPreferredSize(new Dimension(150, 22));
+		cadastrar.add(cadMoto);
 		
-		JMenuItem mntmMoto_1 = new JMenuItem("Moto");
-		listar.add(mntmMoto_1);
-		cadastrar.add(loja);
-		cadastrar.add(carro);
-		cadastrar.add(moto);
+		JMenuItem pesqCarro = new JMenuItem("Carro");
+		pesqCarro.setIcon(new ImageIcon(MainInterface.class.getResource("/br/edu/infnet/java3/ciclo4/av1/imagens/carroicon.png")));
+		pesqCarro.setPreferredSize(new Dimension(150, 22));
+		pesquisar.add(pesqCarro);		
+		JMenuItem pesqMoto = new JMenuItem("Moto");
+		pesqMoto.setIcon(new ImageIcon(MainInterface.class.getResource("/br/edu/infnet/java3/ciclo4/av1/imagens/motoicon.png")));
+		pesqMoto.setPreferredSize(new Dimension(150, 22));
+		pesquisar.add(pesqMoto);
+		
+		JMenuItem listCarro = new JMenuItem("Estoque Carro");
+		listCarro.setIcon(new ImageIcon(MainInterface.class.getResource("/br/edu/infnet/java3/ciclo4/av1/imagens/carroicon.png")));
+		listCarro.setPreferredSize(new Dimension(150, 22));
+		listar.add(listCarro);		
+		JMenuItem listMoto = new JMenuItem("Estoque Moto");
+		listMoto.setIcon(new ImageIcon(MainInterface.class.getResource("/br/edu/infnet/java3/ciclo4/av1/imagens/motoicon.png")));
+		listMoto.setPreferredSize(new Dimension(150, 22));
+		listar.add(listMoto);
 	}
 
 }
